@@ -1,0 +1,40 @@
+1  sudo nano /etc/wpa_supplicant/wpa_supplicant.conf 
+    2  reboot
+    3  sudo raspi-config 
+    4  sudo nano /etc/dhcpcd.conf
+    5  sudo apt-get update -y
+    6  sudo apt-get upgrade -y
+    7  sudo wget https://repo.zabbix.com/zabbix/4.0/raspbian/pool/main/z/zabbix-release/zabbix-release_4.0-2+stretch_all.deb
+    8  sudo dpkg -i zabbix-release_4.0-2+stretch_all.deb 
+    9  sudo apt update
+   10  sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-agent
+   11  sudo apt-get install apache2 libapache2-mod-php7.0 php7.0 php7.0-xml php7.0-bcmath php7.0-mbstring -y
+   12  sudo apt-get update -y
+   13  sudo apt-get install dirmngr
+   14  sudo apt-get install mariadb-server -y
+   15  sudo mysql_secure_installation
+   16  sudo systemctl start apache2
+   17  sudo systemctl enable apache2
+   18  sudo systemctl start mysql
+   19  sudo systemctl enable mysql
+   20  sudo apt-get update
+   21  sudo systemctl start zabbix-agent
+   22  sudo systemctl enable zabbix-agent
+   23  mysql -u root -p
+   24  sudo mysql -u root -p
+   25  cd /usr/share/doc/zabbix-server-mysql*/
+   26  zcat create.sql.gz | mysql -u zabbixuser -p zabbixdb
+   27  123456
+   28  sudo nano /etc/zabbix/apache.conf
+   29  sudo nano /etc/zabbix/zabbix_server.conf
+   30  cd
+   31  sudo systemctl restart apache2
+   32  sudo systemctl restart mysql
+   33  sudo systemctl restart zabbix-server
+   34  sudo apt-get install ufw -y
+   35  sudo ufw enable
+   36  sudo ufw allow 10050/tcp
+   37  sudo ufw allow 10051/tcp
+   38  sudo ufw allow 80/tcp
+   39  sudo ufw reload
+   40  history
